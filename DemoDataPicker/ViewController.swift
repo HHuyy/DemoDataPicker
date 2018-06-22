@@ -10,14 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var Button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func ButtonTap(_ sender: Any) {
+        let dateOfBirth = datePicker.date
+        let gregorian = Calendar(identifier: .gregorian)
+        let ageComponents = gregorian.dateComponents([.year], from: dateOfBirth, to: Date())
+        let age = ageComponents.year!
+        
+        ageLabel.text = "\(age)"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 
