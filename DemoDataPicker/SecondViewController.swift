@@ -30,7 +30,16 @@ class SecondViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         pickerView.delegate = self
         pickerView.dataSource = self
     }
-
+    @IBAction func buttonTap(_ sender: UIButton) {
+        let selectedNumberPicker = ageArray[pickerView.selectedRow(inComponent: (0))]
+        print(selectedNumberPicker)
+    }
+    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        let selectedNumberPicker = "\(ageArray[row])"
+//        print(selectedNumberPicker)
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
